@@ -58,3 +58,20 @@ def alumn_averages
     end
 end
 
+def absence
+    alumns = read_alum("alumnos.csv")
+    hash_aux = {}
+    alumns.each do |arr|
+        sum = 0
+        arr.each_with_index do |elem,index|
+        aes = elem.count("A")
+        sum += aes
+          hash_aux[arr[0]]=sum
+        end
+    end
+    absence_count = hash_aux.to_a
+    absence_count.each do |abs|
+        puts "Alumno #{abs[0]} presenta #{abs[1]} inasistencia/s"
+    end    
+end
+
