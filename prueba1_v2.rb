@@ -45,11 +45,16 @@ end
 
 def alumn_averages
     alumns = read_alum("alumnos.csv")
-    alumns.each do |x|
-        puts "Alumno #{x[0]}"
-        alumns.each_with_index do |elem, index|
+    alumns.each do |element|
+        puts "\nAlumno #{element[0]}:"
+        sum = 0
+        element.each_with_index do |grade, index|
+            sum += grade.to_i
+            
         end
+        div = sum/((element.length)-1).to_f
+        
+        puts "Promedio #{div}"
     end
 end
 
-alumn_averages
