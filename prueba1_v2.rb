@@ -75,3 +75,19 @@ def absence
     end    
 end
 
+def approved(grade)
+    alumns = read_alum("alumnos.csv")
+    alumns.each do |element|
+        sum = 0
+        element.each_with_index do |grade, index|
+            sum += grade.to_i
+        end
+        div = sum/((element.length)-1).to_f
+        if div >= grade
+            puts "\nAlumno #{element[0]} ha sido aprobado!! :)"
+        else
+            puts "\nAlumno #{element[0]} ha sido reprobado :("
+        end
+    end
+end
+approved(5.0)
