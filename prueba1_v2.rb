@@ -50,7 +50,6 @@ def alumn_averages
         sum = 0
         element.each_with_index do |grade, index|
             sum += grade.to_i
-            
         end
         div = sum/((element.length)-1).to_f
         
@@ -64,9 +63,9 @@ def absence
     alumns.each do |arr|
         sum = 0
         arr.each_with_index do |elem,index|
-        aes = elem.count("A")
-        sum += aes
-          hash_aux[arr[0]]=sum
+            aes = elem.count("A")
+            sum += aes
+            hash_aux[arr[0]]=sum
         end
     end
     absence_count = hash_aux.to_a
@@ -90,4 +89,27 @@ def approved(grade)
         end
     end
 end
-approved(5.0)
+
+#MENU
+puts "Bienvenido al portal de alumnos!"
+menu_num = 0
+until menu_num == 4
+    puts "Menú:
+    1. Conocer el promedio de cada alumno.
+    2. Saber la cantidad de inasistencias que presenta cada alumno.
+    3. Conocer que alumno fue aprobado y cual no.
+    4. Salir
+    \nIngrese el número de opción que usted quiera escoger: _"
+    menu_num = gets.chomp.to_i
+    if menu_num == 1
+        alumn_averages
+    elsif menu_num == 2
+        absence
+    elsif menu_num == 3
+        approved(5.0)
+    elsif menu_num == 4
+        puts "Adiós"
+    else
+        puts "Opción incorrecta, intente nuevamente"
+    end
+end
