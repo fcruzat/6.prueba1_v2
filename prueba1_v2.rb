@@ -74,7 +74,7 @@ def absence
     end    
 end
 
-def approved(grade)
+def approved(grade = 5.0)
     alumns = read_alum("alumnos.csv")
     alumns.each do |element|
         sum = 0
@@ -106,7 +106,7 @@ until menu_num == 4
     elsif menu_num == 2
         absence
     elsif menu_num == 3
-        approved(5.0)
+        approved
     elsif menu_num == 4
         puts "Adiós"
     else
